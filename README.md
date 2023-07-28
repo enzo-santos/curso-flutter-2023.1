@@ -1,6 +1,6 @@
 # Curso Flutter de Férias 2023.1
 
-[![Static Badge](https://img.shields.io/badge/sheets-repositórios-green?logo=googlesheets)]([https://www.instagram.com/p/Ct2L6V8ubP_](https://docs.google.com/spreadsheets/d/1LAPNtiIgmNhob_3M7Y3KR9olXNErpOao5mIVpSd6FvQ/edit?usp=sharing))
+[![Static Badge](https://img.shields.io/badge/sheets-repositórios-green?logo=googlesheets)](https://docs.google.com/spreadsheets/d/1LAPNtiIgmNhob_3M7Y3KR9olXNErpOao5mIVpSd6FvQ/edit?usp=sharing)
 
 ## Resoluções
 
