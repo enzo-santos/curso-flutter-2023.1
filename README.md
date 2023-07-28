@@ -1,7 +1,9 @@
 # Curso Flutter de Férias 2023.1
 
-[![Static Badge](https://img.shields.io/badge/sheets-repositórios-green?logo=googlesheets)](https://docs.google.com/spreadsheets/d/1LAPNtiIgmNhob_3M7Y3KR9olXNErpOao5mIVpSd6FvQ/edit?usp=sharing)
 [![Static Badge](https://img.shields.io/badge/dart-dartpad-blue?logo=dart)](https://dartpad.dev)
+[![Static Badge](https://img.shields.io/badge/dart-tutorialspoint-blue?logo=dart)](https://www.tutorialspoint.com/execute_dart_online.php)
+[![Static Badge](https://img.shields.io/badge/dart-jdoodle-blue?logo=dart)](https://www.jdoodle.com/execute-dart-online)
+[![Static Badge](https://img.shields.io/badge/sheets-repositórios-green?logo=googlesheets)](https://docs.google.com/spreadsheets/d/1LAPNtiIgmNhob_3M7Y3KR9olXNErpOao5mIVpSd6FvQ/edit?usp=sharing)
 
 ## Resoluções
 
@@ -23,6 +25,16 @@ void main() {
   int entradaInt = int.parse(entrada);
   double entradaDouble = double.parse(entrada);
   bool entradaBool = entrada == 'sim' ? true : false;
+}
+```
+
+- Imprimir e manter na mesma linha (nota: não funciona no Dartpad)
+
+```dart
+import 'dart:io';
+
+void main() {
+  stdout.write('Olá, mundo!');
 }
 ```
 
