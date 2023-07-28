@@ -1,10 +1,44 @@
 # Curso Flutter de Férias 2023.1
 
 [![Static Badge](https://img.shields.io/badge/sheets-repositórios-green?logo=googlesheets)](https://docs.google.com/spreadsheets/d/1LAPNtiIgmNhob_3M7Y3KR9olXNErpOao5mIVpSd6FvQ/edit?usp=sharing)
+[![Static Badge](https://img.shields.io/badge/dart-dartpad-blue?logo=dart)](https://dartpad.dev)
+
+
 
 ## Resoluções
 
 Dentro de cada diretório, há uma pasta chamada *resolucoes* contendo as resoluções de cada exercício. 
+
+## Snippets
+
+Alguns trechos de código úteis:
+
+- Ler um valor do usuário e transformar em um tipo primitivo (nota: não funciona no Dartpad)
+
+```dart
+import 'dart:io';
+
+void main() {
+  String entrada = stdin.readLineSync()!;
+  
+  String entradaString = entrada;
+  int entradaInt = int.parse(entrada);
+  double entradaDouble = double.parse(entrada);
+  bool entradaBool = entrada == 'sim' ? true : false;
+}
+```
+
+- Gerar um número aleatório de `a` (inclusivo) a `b` (exclusivo)
+
+```dart
+import 'dart:math';
+
+void main() {
+  int a = 0;
+  int b = 10;
+  int numero = Random().nextInt(b) + a;
+}
+```
 
 ## Cronograma
 
