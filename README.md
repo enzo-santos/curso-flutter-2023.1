@@ -3,8 +3,6 @@
 [![Static Badge](https://img.shields.io/badge/sheets-repositórios-green?logo=googlesheets)](https://docs.google.com/spreadsheets/d/1LAPNtiIgmNhob_3M7Y3KR9olXNErpOao5mIVpSd6FvQ/edit?usp=sharing)
 [![Static Badge](https://img.shields.io/badge/dart-dartpad-blue?logo=dart)](https://dartpad.dev)
 
-
-
 ## Resoluções
 
 Dentro de cada diretório, há uma pasta chamada *resolucoes* contendo as resoluções de cada exercício. 
@@ -41,6 +39,8 @@ void main() {
 ```
 
 ## Cronograma
+
+> **Nota:** Não haverá aula nos dias 7 a 11 de agosto.
 
 ### Curso básico
 
