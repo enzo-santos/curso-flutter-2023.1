@@ -5,11 +5,12 @@ Future<void> main() async {
   StreamController<List<String>> streamController =
       StreamController<List<String>>();
 
-  //Ouve qualquer evento lançado na stream
+  //ATENÇÃO AQUI
+  //Ouve todos os eventos da stream EM QUALQUER MOMENTO.
   streamController.stream.listen((event) {
-    // Pega todos os nomes de cada evento lançado
+    // Aloca todos os nomes do evento atual
     List<String> lengthNomes = event.map((nome) => nome).toList();
-    // Imprime
+    // Imprime lengthNomes atual
     print(lengthNomes);
   });
 
