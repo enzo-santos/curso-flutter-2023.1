@@ -12,7 +12,7 @@ Future<void> main() async {
     List<String> nomes = event.map((nome) => nome).toList();
     // Imprime todos os nomes alocados no evento atual
     print(nomes);
-    // OBS: Se quiser imprimir o tamanho (em catacteres) de cada nome basta colocar .length
+    // OBS: Se quiser imprimir o tamanho (em caracteres) de cada nome basta colocar .length
     //List<int> lenghNomes = event.map((nome) => nome.length).toList();
   });
 
