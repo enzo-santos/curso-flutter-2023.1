@@ -10,7 +10,7 @@ Future<void> main() async {
   streamController.stream.listen((event) {
     // Aloca todos os nomes do evento atual
     List<String> nomes = event.map((nome) => nome).toList();
-    // Imprime lengthNomes atual
+    // Imprime todos os nomes alocados no evento atual
     print(nomes);
   });
 
