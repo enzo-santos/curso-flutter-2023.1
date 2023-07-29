@@ -9,9 +9,9 @@ Future<void> main() async {
   //Ouve todos os eventos da stream EM QUALQUER MOMENTO.
   streamController.stream.listen((event) {
     // Aloca todos os nomes do evento atual
-    List<String> lengthNomes = event.map((nome) => nome).toList();
+    List<String> nomes = event.map((nome) => nome).toList();
     // Imprime lengthNomes atual
-    print(lengthNomes);
+    print(nomes);
   });
 
   // Adiciona um evento com os nomes
