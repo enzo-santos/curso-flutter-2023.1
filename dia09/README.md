@@ -32,7 +32,7 @@ class Cabecalho extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return cpmst Text('Cabeçalho');
+    return const Text('Cabeçalho');
   }
 }
 
