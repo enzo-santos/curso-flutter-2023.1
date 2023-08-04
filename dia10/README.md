@@ -1,6 +1,20 @@
 ```dart
 import 'package:flutter/material.dart';
 
+class Categoria {
+  final String nome;
+  final List<Prato> pratos;
+
+  const Categoria({required this.nome, required this.pratos});
+}
+
+class Prato {
+  final String nome;
+  final double preco;
+
+  const Prato({required this.nome, required this.preco});
+}
+
 void main() {
   runApp(
     const MaterialApp(
@@ -21,18 +35,32 @@ class _TelaState extends State<Tela> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> categorias = [
-      'Sobremesas',
-      'Pratos principais',
-      'Aperitivos',
+    List<Categoria> categorias = const [
+      Categoria(
+        nome: 'Sobremesas',
+        pratos: [
+          Prato(nome: 'Torta', preco: 20),
+          Prato(nome: 'Sorvete', preco: 15),
+          Prato(nome: 'Pizza', preco: 40),
+        ],
+      ),
+      Categoria(
+        nome: 'Pratos principais',
+        pratos: [
+          Prato(nome: 'Strogonoff', preco: 20),
+          Prato(nome: 'Arroz', preco: 15),
+          Prato(nome: 'Salada', preco: 40),
+        ],
+      ),
+      Categoria(
+        nome: 'Aperitivos',
+        pratos: [
+          Prato(nome: 'Empada', preco: 20),
+          Prato(nome: 'Pastel', preco: 15),
+          Prato(nome: 'Doce', preco: 40),
+        ],
+      ),
     ];
-    List<String> nomesPratos = [
-      'Prato A',
-      'Prato B',
-      'Prato C',
-    ];
-    nomesPratos =
-        nomesPratos.where((nomePrato) => nomePrato.contains(busca)).toList();
 
     return Scaffold(
       body: Column(
@@ -54,12 +82,14 @@ class _TelaState extends State<Tela> {
               ),
             ),
           ),
-          for (String categoria in categorias)
+          for (Categoria categoria in categorias)
             Padding(
               padding: const EdgeInsets.all(10),
               child: Secao(
-                titulo: categoria,
-                nomesPratos: nomesPratos,
+                titulo: categoria.nome,
+                pratos: categoria.pratos
+                    .where((prato) => prato.nome.contains(busca))
+                    .toList(),
               ),
             ),
         ],
@@ -70,12 +100,12 @@ class _TelaState extends State<Tela> {
 
 class Secao extends StatelessWidget {
   final String titulo;
-  final List<String> nomesPratos;
+  final List<Prato> pratos;
 
   const Secao({
     super.key,
     required this.titulo,
-    required this.nomesPratos,
+    required this.pratos,
   });
 
   @override
@@ -94,13 +124,13 @@ class Secao extends StatelessWidget {
         const SizedBox(height: 10),
         Row(
           children: [
-            for (String nomePrato in nomesPratos)
+            for (Prato prato in pratos)
               Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 10,
                 ),
                 child: CardPrato(
-                  nome: nomePrato,
+                  prato: prato,
                   icone: const Icon(Icons.restaurant),
                 ),
               ),
@@ -112,12 +142,12 @@ class Secao extends StatelessWidget {
 }
 
 class CardPrato extends StatelessWidget {
-  final String nome;
+  final Prato prato;
   final Icon icone;
 
   const CardPrato({
     super.key,
-    required this.nome,
+    required this.prato,
     required this.icone,
   });
 
@@ -129,7 +159,7 @@ class CardPrato extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (_) => TelaDescricao(
-              nomePrato: nome,
+              prato: prato,
             ),
           ),
         );
@@ -142,7 +172,7 @@ class CardPrato extends StatelessWidget {
       child: Column(
         children: [
           icone,
-          Text(nome),
+          Text(prato.nome),
         ],
       ),
     );
@@ -150,17 +180,17 @@ class CardPrato extends StatelessWidget {
 }
 
 class TelaDescricao extends StatelessWidget {
-  final String nomePrato;
+  final Prato prato;
 
-  const TelaDescricao({super.key, required this.nomePrato});
+  const TelaDescricao({super.key, required this.prato});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(nomePrato)),
+      appBar: AppBar(title: Text(prato.nome)),
       body: Column(
         children: [
-          const Text('Olá, mundo!'),
+          Text('${prato.preco}'),
           TextButton(
             child: const Text('fazer pedido'),
             onPressed: () {
@@ -184,5 +214,4 @@ class TelaDescricao extends StatelessWidget {
     );
   }
 }
-
 ```
