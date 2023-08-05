@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/youtube-assistir%20aula-red?logo=youtube)](https://youtu.be/lPB0bdv1Z6k)
+[![](https://img.shields.io/badge/youtube-assistir%20aula-red?logo=youtube)](https://www.youtube.com/watch?v=5Gd65ncqXJ0)
 
 ## Exercício
 
