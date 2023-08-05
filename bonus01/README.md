@@ -50,7 +50,7 @@ Note que, ao usar `jsonDecode`, você pode receber também uma lista da seguinte
 List<Map> dados = List.from(jsonDecode(conteudo));
 ```
 
-Crie uma tala única no Flutter para carregar e exibir esses comentários. 
+Crie uma tela única no Flutter para carregar e exibir esses comentários. 
 
 ![](https://img.uxcel.com/practices/show-in-chunks-1602858518953/a-1686059858886.png)
 <sub>Inspiração de layout<sub>
