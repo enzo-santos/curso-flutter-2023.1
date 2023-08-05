@@ -1,3 +1,5 @@
+[![](https://img.shields.io/badge/youtube-assistir%20aula-red?logo=youtube)](https://youtu.be/lPB0bdv1Z6k)
+
 ## Exercício
 
 O link https://jsonplaceholder.typicode.com/posts/1/comments retorna um JSON no seguinte modelo:
