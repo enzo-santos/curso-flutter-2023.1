@@ -158,3 +158,20 @@ toda vez que houver uma atualização. Se não houver um modelo com esse ID na t
   }
   ```
 
+## Exercícios
+
+1. A aplicação será de gerenciamento de projetos, cujos usuários serão desenvolvedores.
+2. Crie uma tela de entrada, permitindo a inserção de e-mail e senha, além de um botão "Entrar".
+3. Crie uma tela de cadastro, permitindo a inserção de e-mail e senha, além de um botão "Cadastrar".
+4. A tela de entrada deverá redirecionar para a tela de cadastro, por meio de um botão "Criar conta".
+5. Tanto a tela de entrada quanto a tela de cadastro, caso a autenticação seja válida, deverão levar o desenvolvedor para uma tela de projetos.
+6. A tela de projetos deve verificar se o desenvolvedor logado já possui seus dados inseridos na plataforma, que devem ser
+   - nome (campo livre, use `TextFormField`)
+   - cargo (campo de escolha entre "Desenvolvedor", "Gerente" e "Testador", use `DropdownFormField`)
+   - ativo (campo binário, use `CheckboxListTile`)
+   - data de entrada no projeto (campo de data, use `TextFormField` ou [`showDatePicker`](https://stackoverflow.com/a/52729082/9997212))
+7. Em caso negativo, o desenvolvedor poderá acessar uma tela de formulário por meio de um botão "Finalizar cadastro".
+   Ao preencher o formulário e finalizar, os dados deverão ser persistidos no banco de dados em nuvem.
+8. Em caso positivo, o desenvolvedor terá acesso a dois botões:
+   - "Editar cadastro", cujo desenvolvedor poderá acessar a tela de formulário e editar seus dados em nuvem.
+   - "Remover cadastro", o desenvolvedor poderá remover seus dados na nuvem, que deverá ativar o passo 7.
