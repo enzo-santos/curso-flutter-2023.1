@@ -109,3 +109,51 @@ FirebaseDatabase
 
 irá retornar o modelo de ID `83b0KaUAdQPQ4QYtQaMoZ4dd8zO2` na tabela `usuarios` como um `Map`
 toda vez que houver uma atualização.
+
+## Boas práticas
+
+- Ao usar a leitura contínua em um `StreamBuilder`, use um campo dentro do `initState` para armazenar
+  a `Stream<Map?>` retornada pelo `FirebaseDatabase` e use esse campo como parâmetro `stream` do `StreamBuilder`:
+
+  ```dart
+  class Tela extends StatefulWidget {
+    const Tela({super.key});
+
+    @override
+    State<Tela> createState() => _EstadoTela();
+  }
+
+  class _EstadoTela extends State<Tela> {
+    late Stream<Map?> _stream;
+
+    @override
+    void initState() {
+      super.initState();
+      _stream = FirebaseDatabase
+        .instance
+        .ref()
+        .child('usuarios')
+        .child('83b0KaUAdQPQ4QYtQaMoZ4dd8zO2')
+        .onValue
+        .map((event) => event.snapshot.value as Map);
+    }
+
+    @override
+    Widget build(BuildContext context) {
+      return Scaffold(
+        body: StreamBuilder<Map?>(
+          stream: _stream,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            final Map? dados = snapshot.data;
+            if (dados == null) return const Text('Sem dados.');
+            return Text("${dados['nome']} ${dados['ativo']} ${dados['data-nascimento']}");
+          },
+        ),
+      );
+    }
+  }
+  ```
+
