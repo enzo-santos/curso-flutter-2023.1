@@ -111,7 +111,7 @@ FirebaseDatabase
 irá retornar o modelo de ID `83b0KaUAdQPQ4QYtQaMoZ4dd8zO2` na tabela `usuarios` como um `Map`
 toda vez que houver uma atualização. Se não houver um modelo com esse ID na tabela, `dados` será nulo.
 
-## Boas práticas
+## Erros comuns
 
 - Ao usar a leitura contínua em um `StreamBuilder`, use um campo dentro do `initState` para armazenar
   a `Stream<Map?>` retornada pelo `FirebaseDatabase` e use esse campo como parâmetro `stream` do `StreamBuilder`:
