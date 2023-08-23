@@ -83,12 +83,13 @@ var dados = await FirebaseDatabase
   .child('usuarios')
   .child('83b0KaUAdQPQ4QYtQaMoZ4dd8zO2')
   .get()
-  .then((snapshot) => snapshot.value as Map);
+  .then((snapshot) => snapshot.value as Map?);
 
 print(dados);
 ```
 
 irá retornar o modelo de ID `83b0KaUAdQPQ4QYtQaMoZ4dd8zO2` na tabela `usuarios` como um `Map`.
+Se não houver um modelo com esse ID na tabela, `dados` será nulo.
 
 ### Leitura contínua
 
@@ -108,7 +109,7 @@ FirebaseDatabase
 ```
 
 irá retornar o modelo de ID `83b0KaUAdQPQ4QYtQaMoZ4dd8zO2` na tabela `usuarios` como um `Map`
-toda vez que houver uma atualização.
+toda vez que houver uma atualização. Se não houver um modelo com esse ID na tabela, `dados` será nulo.
 
 ## Boas práticas
 
@@ -135,7 +136,7 @@ toda vez que houver uma atualização.
         .child('usuarios')
         .child('83b0KaUAdQPQ4QYtQaMoZ4dd8zO2')
         .onValue
-        .map((event) => event.snapshot.value as Map);
+        .map((event) => event.snapshot.value as Map?);
     }
 
     @override
