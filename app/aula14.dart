@@ -13,22 +13,30 @@ void main() async {
   runApp(const MaterialApp(home: TelaConsulta()));
 }
 
+// Modelo de um usuário do nosso banco
 class Usuario {
+  // ID
+  // É sempre único para cada um dos modelos da tabela de `usuarios` 
   final String id;
+
+  // Campos 
   final String nome;
   final String cargo;
   final DateTime dataEntrada;
   final bool ativo;
 
+  // Para deserialização
   Usuario.fromJson(String id, Map dados)
       : this(
           id: id,
           nome: dados['nome'],
           cargo: dados['cargo'],
           ativo: dados['ativo'],
+          // Para ler datas do banco, sempre usar `DateTime.parse`
           dataEntrada: DateTime.parse(dados['data-entrada']),
         );
 
+  // Para construção no próprio código
   const Usuario({
     required this.id,
     required this.nome,
@@ -37,24 +45,35 @@ class Usuario {
     required this.ativo,
   });
 
+  // Para serialização
   Map<String, Object?> toJson() {
     return {
       'nome': nome,
       'cargo': cargo,
       'ativo': ativo,
+      // Para escrever datas no banco, sempre usar `dateTime.toIso8601String()`
       'data-entrada': dataEntrada.toIso8601String(),
     };
   }
 }
 
+// Modelo de um projeto do nosso banco
 class Projeto {
+  // ID
+  // É sempre único para cada um dos modelos da tabela de `projetos` 
   final String id;
+
+  // ID estrangeiro
+  // Se refere a outros modelos do nosso banco, não é necessariamente único
+  final String idGerente;
+
+  // Campos
   final String nome;
   final int numeroMembros;
   final DateTime dataEntrega;
   final bool concluido;
-  final String idGerente;
 
+  // Para deserialização
   Projeto.fromJson(String id, Map dados)
       : this(
           id: id,
@@ -65,6 +84,7 @@ class Projeto {
           idGerente: dados['id-gerente'],
         );
 
+  // Para construção no próprio código 
   const Projeto({
     required this.id,
     required this.idGerente,
@@ -74,6 +94,7 @@ class Projeto {
     required this.concluido,
   });
 
+  // Para serialização
   Map<String, Object?> toJson() {
     return {
       'nome': nome,
